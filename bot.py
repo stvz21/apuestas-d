@@ -11,11 +11,11 @@ Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 
 #Acceso
-async def participant(user_id: int):
+async def participant(username):
     if Channel_Id is None:
         return True
     try:
-        await bot.get_chat_member(Channel_Id, user_id)
+        await bot.get_chat_member(Channel_Id, username)
     except ChatAdminRequired:
         print(f"Please Add the Bot to @{Config.Bot_Channel} as Admin")
         return True
@@ -32,7 +32,7 @@ async def start(bot, message):
    # await wait(message.chat.id)
     username = message.from_user.username
 
-    if participant(message.chat.id) == False
+    if participant(username) == False
         await bot.send_message(username, 'Holka')
 
 

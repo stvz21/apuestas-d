@@ -11,29 +11,30 @@ Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 
 #Acceso
-async def participant(username):
-    if Channel_Id is None:
+async def participant(user_id: int):
+    if Config.Bot_Channel is None:
         return True
     try:
-        await bot.get_chat_member(Channel_Id, username)
+        await bot.get_chat_member(Config.Bot_Channel, user_id)
     except ChatAdminRequired:
         print(f"Please Add the Bot to @{Config.Bot_Channel} as Admin")
         return True
     except UserNotParticipant:
-        buttons = [[InlineKeyboardButton('Unete Para Usar El BoT', url=f'https://t.me/{Channel_Id}')]]
+        buttons = [[InlineKeyboardButton(Strings.bot_channel, url=f'https://t.me/{Config.Bot_Channel}')]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await bot.send_message(user_id, 'Unete', reply_markup=reply_markup)
+        await bot.send_message(user_id, Strings.force_join, reply_markup=reply_markup)
         return False
     else:
         return True
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
-async def start(bot, message):
-   # await wait(message.chat.id)
+async def start(_, msg: Message):
+   # await wait(msg.chat.id)
     username = message.from_user.username
-
-    if participant(username) == False
-        await bot.send_message(username, 'Holka')
+    await bot.send_message(username, '11a')
+    if not await participant(msg.chat.id):
+        return
+    await bot.send_message(username, 'Holka')
 
 
 

@@ -12,7 +12,7 @@ bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 
 #Acceso
 async def participant(user_id: int):
-    if Config.Bot_Channel is None:
+    if Channel_Id is None:
         return True
     try:
         await bot.get_chat_member(Channel_Id, user_id)

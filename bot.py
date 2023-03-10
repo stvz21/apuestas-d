@@ -11,7 +11,7 @@ Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 
 #Acceso
-async def participant(user_id: int):
+def participant(msg.chat.id):
     if Channel_Id is None:
         return True
     try:

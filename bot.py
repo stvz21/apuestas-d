@@ -29,12 +29,11 @@ async def participant(user_id: int):
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
-    await wait(message.chat.id)
+   # await wait(message.chat.id)
     username = message.from_user.username
 
-    if not await participant(msg.chat.id):
-        return
-    await bot.send_message(username, 'Holka')
+    if participant(message.chat.id) == False
+        await bot.send_message(username, 'Holka')
 
 
 

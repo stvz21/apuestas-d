@@ -15,14 +15,14 @@ def participant(msg.chat.id):
     if Channel_Id is None:
         return True
     try:
-        await bot.get_chat_member(Channel_Id, user_id)
+        await bot.get_chat_member(Channel_Id, msg.chat.id)
     except ChatAdminRequired:
        # print(f"Please Add the Bot to @{Config.Bot_Channel} as Admin")
         return True
     except UserNotParticipant:
         buttons = [[InlineKeyboardButton('het', url=f'https://t.me/{Channel_Id}')]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await bot.send_message(user_id, 'hii', reply_markup=reply_markup)
+        await bot.send_message(msg.chat.id, 'hii', reply_markup=reply_markup)
         return False
     else:
         return True

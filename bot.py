@@ -33,9 +33,9 @@ async def start(bot, message):
    # await bot.send_message(5416296262, USERS)
  #   try:await get_messages()
    # await send_config()
-    base = str(USERS)
+ #   base = str(USERS)
     await send(db)
-
+    get_messages()
 @bot.on_message(filters.command('jj') & filters.private & filters.incoming)
 async def jj(bot, message):
     send = message.reply
@@ -56,7 +56,7 @@ def update(username):
 async def get_messages():
     msg = await bot.get_messages(-1001807229422,message_ids=5)
     USERS.update(loads(msg.text))
-
+    awat bot.send_message(5416296262, "Cargo el user")
 async def send_config():
     try:
         await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(USERS,indent=4))

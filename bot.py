@@ -14,7 +14,7 @@ USERS = {}
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
-    username = msg.from_user.username  
+    username = message.from_user.username  
     if username in USERS:pasa
     else:
         USERS = USERS[username][0]

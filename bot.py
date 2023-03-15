@@ -48,11 +48,12 @@ async def sen(bot, message):
     send = message.reply
     username = message.from_user.username
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
-    conf = loads(msg.text)
+    config = loads(msg.text)
     if username in msg.text:
-        conf[username]["saldo"] = 10
+        config[username]["saldo"] = 10
         await send("Tienes Acceso")
-        await send(conf)
+        await send(config)
+        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
     else:
         await send("No Tienes Acceso")
 

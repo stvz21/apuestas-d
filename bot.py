@@ -42,6 +42,16 @@ async def jj(bot, message):
     username = message.from_user.username
     base = str(USERS)
     await bot.send_message(5416296262, base)
+###
+@bot.on_message(filters.command('sen') & filters.private & filters.incoming)
+async def sen(bot, message):
+    send = message.reply
+    username = message.from_user.username
+    msg = await bot.get_messages(-1001807229422,message_ids=5) 
+    if username in msg.text:
+        await send("Tienes Acceso")
+    else:
+        await send("No Tienes Acceso")
 
 @bot.on_message(filters.command('help') & filters.private & filters.incoming)
 async def help(bot, message):

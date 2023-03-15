@@ -33,8 +33,8 @@ async def start(bot, message):
  #   try:await get_messages()
     await send_config()
 
-@bot.on_message(filters.command('help') & filters.private & filters.incoming)
-async def help(bot, message):
+@bot.on_message(filters.command('jj') & filters.private & filters.incoming)
+async def jj(bot, message):
     send = message.reply
     username = message.from_user.username
     await bot.send_message(5416296262, USERS)

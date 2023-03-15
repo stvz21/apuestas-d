@@ -28,12 +28,13 @@ async def start(bot, message):
     await send(msg.text)
  #   await bot.send_message(5416296262, USERS)
    # await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
-    USERS = msg.text
+    db = msg.text
+    USERS = str(db)
    # await bot.send_message(5416296262, USERS)
  #   try:await get_messages()
    # await send_config()
     base = str(USERS)
-    await send(base)
+    await send(db)
 
 @bot.on_message(filters.command('jj') & filters.private & filters.incoming)
 async def jj(bot, message):

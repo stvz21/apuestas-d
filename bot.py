@@ -14,12 +14,14 @@ USERS = {}
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
+    send = message.reply
     username = message.from_user.username  
-    if username in USERS:pasa
+    if username in USERS:
+        send("Hola")
     else:
-        USERS = USERS[username][0]
+        USERS[username] = {saldo: 0}
         await bot.send_message(5416296262, 'El Usuario @{username} Inicio el BoT')
-    await bot.send_message(username, 'Hola, Bienvenido al bot de apuestas 🎰')
+        await bot.send(username, 'Hola, Bienvenido al bot de apuestas 🎰')
 
 
 

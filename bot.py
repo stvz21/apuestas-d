@@ -24,10 +24,11 @@ async def start(bot, message):
  #   await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
     msg = await bot.get_messages(-1001807229422,message_ids=5)
   #  Configs.update(loads(msg.text))
-    await send(msg.text)
+  #  await send(msg.text)
  #   await bot.send_message(5416296262, USERS)
    # await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
-    await bot.send_message(5416296262, msg)
+    texto = msg.text
+    await bot.send_message(5416296262, texto)
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
 bot.loop.run_forever()

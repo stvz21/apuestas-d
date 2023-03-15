@@ -49,6 +49,7 @@ async def sen(bot, message):
     username = message.from_user.username
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
     config = loads(msg.text)
+    new = "yoyototototo"
     if username in msg.text:
         config[new] = {"saldo": 100}
         await send("Tienes Acceso")

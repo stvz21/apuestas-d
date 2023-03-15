@@ -49,7 +49,7 @@ bot.on_message(filters.command('db') & filters.private & filters.incoming)
 async def db(bot, message):
     send = message.reply
     username = message.from_user.username
-    await send(Mensaje 1)
+    await send("Mensaje 1")
     get_messages()
 
 

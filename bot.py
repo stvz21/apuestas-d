@@ -50,7 +50,7 @@ async def get_messages():
 
 async def send_config():
     try:
-        await bot.edit_message_text(Channel_Id,message_id=3,text=dumps(Configs,indent=4))
+        await bot.edit_message_text(Channel_Id,message_id=5,text=dumps(USERS,indent=4))
     except:	
         pass
 

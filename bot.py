@@ -8,54 +8,24 @@ from json import loads,dumps
 api_id = 9910861
 api_hash = "86e927460a8998ba6d84e9c13acfda95"
 bot_token = "5871277082:AAFsEc0clhaeJ0wokJVfGF0_P3P0385Sb0M"
-Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
+Channel_Id = -1001807229422
+msg_id 5
 
-USERS = {}
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
     send = message.reply
     username = message.from_user.username  
-    
-    #USERS[username] = {'saldo': 0}
-    await bot.send_message(5416296262, 'El Usuario @'+username+' Inicio el BoT')
-   # await bot.send_message(5416296262, base)
-    await send('Hola, Bienvenido al bot de apuestas 🎰')
- #   await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
-    msg = await bot.get_messages(-1001807229422,message_ids=5)
-  #  Configs.update(loads(msg.text))
-    await send(msg.text)
- #   await bot.send_message(5416296262, USERS)
-   # await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
-    db = msg.text
-    USERS = str(db)
-   # await bot.send_message(5416296262, USERS)
- #   try:await get_messages()
-   # await send_config()
- #   base = str(USERS)
-    await send(db)
-    get_messages()
-@bot.on_message(filters.command('jj') & filters.private & filters.incoming)
-async def jj(bot, message):
-    send = message.reply
-    username = message.from_user.username
-    base = str(USERS)
-    await bot.send_message(5416296262, base)
-###
-@bot.on_message(filters.command('sen') & filters.private & filters.incoming)
-async def sen(bot, message):
-    send = message.reply
-    username = message.from_user.username
-    msg = await bot.get_messages(-1001807229422,message_ids=5) 
+    send_db = bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+    msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msg.text)
-    new = "yoyototototo"
     if username in msg.text:
-        config[new] = {"saldo": 100}
-        await send("Tienes Acceso")
-        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
+        await send("Hola")
     else:
-        await send("No Tienes Acceso")
+        config[username] = {"saldo": 0}
+        await send("Hi, x 1ra vez")
+    await send_db
 
 @bot.on_message(filters.command('help') & filters.private & filters.incoming)
 async def help(bot, message):

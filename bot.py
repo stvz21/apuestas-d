@@ -30,8 +30,9 @@ async def start(bot, message):
    # await bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
     #USERS = msg.text
    # await bot.send_message(5416296262, USERS)
-    try:await get_messages()
-    except:await send_config()
+ #   try:await get_messages()
+    await send_config()
+
 @bot.on_message(filters.command('help') & filters.private & filters.incoming)
 async def help(bot, message):
     send = message.reply

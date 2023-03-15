@@ -25,7 +25,7 @@ async def start(bot, message):
     else:
         config[username] = {"saldo": 0}
         await send("Hi, x 1ra vez")
-    await send_db
+    await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
 @bot.on_message(filters.command('help') & filters.private & filters.incoming)
 async def help(bot, message):

@@ -45,6 +45,7 @@ async def saldo(bot, message):
     else:
         apuest = str(apuesta)
         res = float(saldo - apuesta)
+        ssl= str(res)
         config[username]["saldo"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+sal)

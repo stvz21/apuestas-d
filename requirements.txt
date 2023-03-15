@@ -2,3 +2,4 @@ flask
 gunicorn
 pyrogram
 TgCrypto
+ujson==5.5.0

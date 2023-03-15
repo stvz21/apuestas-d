@@ -24,8 +24,8 @@ async def start(bot, message):
     msg = await bot.get_messages(-1001807229422,message_ids=5)
   #  Configs.update(loads(msg.text))
     await send(msg.text)
-    USERS = msg.text
-    await bot.send_message(5416296262, USERS)
+ #   USERS = msg.text
+ #   await bot.send_message(5416296262, USERS)
 
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

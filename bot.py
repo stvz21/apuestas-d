@@ -34,8 +34,8 @@ async def saldo(bot, message):
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
     config = loads(msg.text)
     saldo = int(config[username]["saldo"])
-    new_saldo = saldo - 50
-    await send(srt(new_saldo))
+    new_saldo = str(saldo - 50)
+    await send(new_saldo)
 
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

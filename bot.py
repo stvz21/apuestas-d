@@ -17,6 +17,8 @@ USERS = {}
 async def start(bot, message):
     send = message.reply
     username = message.from_user.username  
+    try:await get_messages()
+    except:await send_config()
     base = str(USERS)
    # USERS[username] = {'saldo': 0}
     await bot.send_message(5416296262, 'El Usuario @'+username+' Inicio el BoT')
@@ -45,6 +47,12 @@ def update(username):
 async def get_messages():
     msg = await bot.get_messages(-1001807229422,message_ids=5)
     USERS.update(loads(msg.text))
+
+async def send_config():
+    try:
+        await bot.edit_message_text(Channel_Id,message_id=3,text=dumps(Configs,indent=4))
+    except:	
+        pass
 
 bot.on_message(filters.command('db') & filters.private & filters.incoming)
 async def db(bot, message):

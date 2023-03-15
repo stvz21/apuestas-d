@@ -27,33 +27,15 @@ async def start(bot, message):
         await send("Hi, x 1ra vez")
     await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
-@bot.on_message(filters.command('help') & filters.private & filters.incoming)
+@bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
 async def help(bot, message):
     send = message.reply
     username = message.from_user.username
-    base = str(USERS)
-    await bot.send_message(5416296262, base)
-
-def update(username):
-    USERS[username] = {"saldo": 0}
-
-async def get_messages():
-    msg = await bot.get_messages(-1001807229422,message_ids=5)
-    USERS.update(loads(msg.text))
-    await bot.send_message(5416296262, "Cargo el user")
-async def send_config():
-    try:
-        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
-    except:	
-        pass
-
-bot.on_message(filters.command('db') & filters.private & filters.incoming)
-async def db(bot, message):
-    send = message.reply
-    username = message.from_user.username
-   # await send("Mensaje 1")
-    get_messages()
-
+    msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
+    config = loads(msg.text)
+    saldo = int(config[username]["saldo"])
+    new_saldo = saldo - 50
+    await send(srt(new_saldo)
 
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

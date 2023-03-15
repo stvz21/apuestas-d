@@ -17,7 +17,7 @@ msg_id = 5
 async def start(bot, message):
     send = message.reply
     username = message.from_user.username  
-    send_db = bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+  #  send_db = bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msg.text)
     if username in msg.text:

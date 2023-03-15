@@ -10,7 +10,7 @@ api_hash = "86e927460a8998ba6d84e9c13acfda95"
 bot_token = "5871277082:AAFsEc0clhaeJ0wokJVfGF0_P3P0385Sb0M"
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
-msg_id 5
+msg_id = 5
 
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

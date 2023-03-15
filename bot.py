@@ -16,14 +16,11 @@ USERS = {}
 async def start(bot, message):
     send = message.reply
     username = message.from_user.username  
-    if username in USERS:
-        send("Hola")
-    else:
-        USERS[username] = {'saldo': 0}
-        await bot.send_message(5416296262, 'El Usuario @'+username+' Inicio el BoT')
-        await bot.send_message(5416296262, USERS)
-        await send('Hola, Bienvenido al bot de apuestas 🎰')
-
+    USERS[username] = {'saldo': 0}
+    await bot.send_message(5416296262, 'El Usuario @'+username+' Inicio el BoT')
+    await bot.send_message(5416296262, USERS)
+    await send('Hola, Bienvenido al bot de apuestas 🎰')
+    bot.edit_message_text(-1001807229422,message_id=5,text="Hola, Viste edite el mensaje")
 
 
 bot.start()

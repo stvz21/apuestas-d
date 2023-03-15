@@ -6,7 +6,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 api_id = 9910861
 api_hash = "86e927460a8998ba6d84e9c13acfda95"
-bot_token = os.environ.get('bot_token')
+bot_token = "5999344767:AAFh7elZ_HiuZ8GLJ3K63LQnV3Nu8RSrndY"
 Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 

@@ -50,7 +50,7 @@ async def sen(bot, message):
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
     conf = msg.text
     if username in msg.text:
-        conf[username][saldo] = 10
+        conf[username]["saldo"] = 10
         await send("Tienes Acceso")
         await send(conf)
     else:

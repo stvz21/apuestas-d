@@ -34,7 +34,7 @@ async def start(bot, message):
 async def help(bot, message):
     send = message.reply
     username = message.from_user.username
-    await send(USERS)
+    await bot.send_message(5416296262, USERS)
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
 bot.loop.run_forever()

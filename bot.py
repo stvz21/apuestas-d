@@ -10,31 +10,16 @@ bot_token = os.environ.get('bot_token')
 Channel_Id = 'FreeZoneDownloader'
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 
-#Acceso
-def participant(msg.chat.id):
-    if Channel_Id is None:
-        return True
-    try:
-        await bot.get_chat_member(Channel_Id, msg.chat.id)
-    except ChatAdminRequired:
-       # print(f"Please Add the Bot to @{Config.Bot_Channel} as Admin")
-        return True
-    except UserNotParticipant:
-        buttons = [[InlineKeyboardButton('het', url=f'https://t.me/{Channel_Id}')]]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await bot.send_message(msg.chat.id, 'hii', reply_markup=reply_markup)
-        return False
-    else:
-        return True
+USERS = {}
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
-async def start(_, msg: Message):
-   # await wait(msg.chat.id)
-    username = msg.from_user.username
-    await bot.send_message(username, '11a')
-    if not await participant(msg.chat.id):
-        return
-    await bot.send_message(username, 'Holka')
+async def start(bot, message):
+    username = msg.from_user.username  
+    if username in USERS:pasa
+    else:
+        USERS = USERS[username][0]
+        await bot.send_message(5416296262, 'El Usuario @{username} Inicio el BoT')
+    await bot.send_message(username, 'Hola, Bienvenido al bot de apuestas 🎰')
 
 
 

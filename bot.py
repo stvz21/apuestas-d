@@ -50,10 +50,9 @@ async def sen(bot, message):
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
     config = loads(msg.text)
     if username in msg.text:
-        config[username]["saldo"] = 11
+        config[new]["saldo"] = 11
         await send("Tienes Acceso")
-        await send_config()
-       # await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
+        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
     else:
         await send("No Tienes Acceso")
 

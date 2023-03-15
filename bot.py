@@ -37,20 +37,21 @@ async def saldo(bot, message):
     sal = str(saldo)
     if saldo <= 0:
         await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")
-    else:
-        apuesta = float(message.text.split(" ")[1])
-        if apuesta < 25:
-            await send("**La Apuesta Mínima es de 25 cup**"+sal)
-        else:
-            if saldo < apuesta:
-                await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **+sal"
-            else:
-                apuest = str(apuesta)
-                res = float(saldo - apuesta)
-                sald = str(res)
-                config[username]["saldo"] = res
-                await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
-                await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+saldo)
+    else:pass
+    apuesta = float(message.text.split(" ")[1])
+    if apuesta < 25:
+        await send("**La Apuesta Mínima es de 25 cup**"+sal)
+    else:pass  
+    if saldo < apuesta:
+        await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **+sal"
+    else:pass
+    apuest = str(apuesta)
+    res = float(saldo - apuesta)
+    sald = str(res)
+    config[username]["saldo"] = res
+    await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+    await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+saldo)
+
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
 bot.loop.run_forever()

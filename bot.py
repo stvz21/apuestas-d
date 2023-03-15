@@ -49,6 +49,7 @@ async def sen(bot, message):
     username = message.from_user.username
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
     if username in msg.text:
+        msg.text[username][saldo] = 10
         await send("Tienes Acceso")
     else:
         await send("No Tienes Acceso")

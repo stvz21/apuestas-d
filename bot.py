@@ -38,10 +38,10 @@ async def saldo(bot, message):
         await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")
     else:
         apuesta = int(message.text.split(" ")[1])
-        apuesta = str(apuesta)
+        apuest = str(apuesta)
         res = int(saldo - apuesta)
         sald = str(res)
-        config[username]["saldo"] = sald
+        config[username]["saldo"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
         await send("Se Descontó: -"+apuest+"Saldo Restante: "+sald)
 bot.start()

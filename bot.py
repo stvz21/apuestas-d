@@ -21,6 +21,7 @@ async def start(bot, message):
     else:
         USERS[username] = {'saldo': 0}
         await bot.send_message(5416296262, 'El Usuario @'+username+' Inicio el BoT')
+        await bot.send_message(5416296262, USERS)
         await send('Hola, Bienvenido al bot de apuestas 🎰')
 
 

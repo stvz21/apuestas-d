@@ -48,7 +48,7 @@ async def sen(bot, message):
     send = message.reply
     username = message.from_user.username
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
-    conf = msg.text
+    conf = loads(msg.text)
     if username in msg.text:
         conf[username]["saldo"] = 10
         await send("Tienes Acceso")

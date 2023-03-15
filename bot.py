@@ -33,7 +33,8 @@ async def start(bot, message):
  #   try:await get_messages()
    # await send_config()
     base = str(USERS)
-    await send(base
+    await send(base)
+
 @bot.on_message(filters.command('jj') & filters.private & filters.incoming)
 async def jj(bot, message):
     send = message.reply

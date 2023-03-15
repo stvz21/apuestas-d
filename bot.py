@@ -50,9 +50,9 @@ async def sen(bot, message):
     msg = await bot.get_messages(-1001807229422,message_ids=5) 
     config = loads(msg.text)
     if username in msg.text:
-        config[username]["saldo"] = 10
+        config[username]["saldo"] = 21
         await send("Tienes Acceso")
-        await send(config)
+        await send_config()
         await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
     else:
         await send("No Tienes Acceso")
@@ -73,7 +73,7 @@ async def get_messages():
     await bot.send_message(5416296262, "Cargo el user")
 async def send_config():
     try:
-        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(USERS,indent=4))
+        await bot.edit_message_text(-1001807229422,message_id=5,text=dumps(config,indent=4))
     except:	
         pass
 

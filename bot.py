@@ -71,8 +71,8 @@ async def url(bot, message):
     send = message.reply
     username = message.from_user.username
     url = requests.get('https://w3schools.com/python/demopage.htm')
-    urls = str(url)
-    await send(urls)     
+ #   urls = str(url)
+    await send(url.text)     
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

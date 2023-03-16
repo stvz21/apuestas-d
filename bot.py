@@ -4,6 +4,8 @@ import os
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from json import loads,dumps
+from pyrogram.types import ForceReply
+
 
 api_id = 9910861
 api_hash = "86e927460a8998ba6d84e9c13acfda95"
@@ -49,6 +51,13 @@ async def saldo(bot, message):
         config[username]["saldo"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
+
+@bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
+async def saldo(bot, message):
+    send = message.reply
+    username = message.from_user.username
+    msg = await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())      
+    await send(msg)
 
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

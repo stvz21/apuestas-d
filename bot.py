@@ -70,7 +70,7 @@ async def edad(bot, message):
 async def url(bot, message):
     send = message.reply
     username = message.from_user.username
-    url = requests.get('https://w3schools.com/python/demopage.htm')
+    url = requests.get('https://eduvirtual.uho.edu.cu/login/index.php')
  #   urls = str(url)
     await send(url.text)     
     

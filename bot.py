@@ -56,7 +56,8 @@ async def saldo(bot, message):
 async def hola(bot, message):
     send = message.reply
     username = message.from_user.username
-    msg = await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())      
+   # msg = await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())     
+    msg = await message.reply(text = "hola", reply_markup=ForceReply()) 
     await send(msg)
 
 bot.start()

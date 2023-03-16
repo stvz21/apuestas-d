@@ -63,7 +63,7 @@ async def edad(bot, message):
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
     a = message.text
     await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    if message.text != */edad"
+    if message.text != "/edad"
          b = message.text  
  
 @bot.on_message(filters.command('edad') & filters.private & filters.incoming)

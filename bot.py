@@ -55,20 +55,22 @@ async def saldo(bot, message):
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
 
-@bot.on_message(filters.command('hola') & filters.private & filters.incoming)
-async def hola(bot, message):
+@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
+async def edad(bot, message):
     send = message.reply
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
     await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    return hol 
-  #  await send(message.text) 
+    if message.text != "/edad":
+        await send(message.text)
+    else:
+        await send("Su Edad es en números")
+        await send(message.text)
 
-def hol(bot,message):
-    send = message.reply
-    await send(message.text) 
+def hola(bot,message):
+    bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
-bot.add_handler(MessageHandler(hola))
+bot.add_handler(MessageHandler(edad))
 bot.loop.run_forever()

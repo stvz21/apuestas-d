@@ -54,15 +54,19 @@ async def saldo(bot, message):
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
+
 @bot.on_message(filters.command('hola') & filters.private & filters.incoming)
 async def hola(bot, message):
     send = message.reply
     username = message.from_user.username
-    #await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
-     #   await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    return   
+   # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
+    await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
+    return hol 
   #  await send(message.text) 
 
+def hol(bot,message):
+    send = message.reply
+    await send(message.text) 
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

@@ -56,7 +56,7 @@ async def saldo(bot, message):
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
 
-@bot.on_message(filters.command('url') & filters.private & filters.incoming)
+@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
 async def edad(bot, message):
     send = message.reply
     username = message.from_user.username
@@ -66,8 +66,8 @@ async def edad(bot, message):
    # if message.text != "/edad"
         # b = message.text  
  
-@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
-async def edad(bot, message):
+@bot.on_message(filters.command('url') & filters.private & filters.incoming)
+async def url(bot, message):
     send = message.reply
     username = message.from_user.username
     url = requests.get('https://w3schools.com/python/demopage.htm')

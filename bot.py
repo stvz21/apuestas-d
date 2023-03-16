@@ -60,9 +60,12 @@ async def hola(bot, message):
     username = message.from_user.username
     try:
         await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())    
+        if menssage.text != " "
+            break
+            await send(message.text)
     except FloodWait as e:
         await asyncio.sleep(e.x) 
-    await send(message.text)
+    
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
 bot.add_handler(MessageHandler(hola))

@@ -67,5 +67,5 @@ async def hola(bot, message):
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
-bot.add_handler(MessageHandler(hola))
+#bot.add_handler(MessageHandler(hola))
 bot.loop.run_forever()

@@ -61,8 +61,8 @@ async def hola(bot, message):
     try:
         await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())    
         if message.text != " ":
-            break
-        await send(message.text)
+            #break
+            await send(message.text)
     except FloodWait as e:
         await asyncio.sleep(e.x) 
     

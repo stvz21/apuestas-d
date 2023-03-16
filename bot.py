@@ -52,8 +52,8 @@ async def saldo(bot, message):
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
-@bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
-async def saldo(bot, message):
+@bot.on_message(filters.command('hola') & filters.private & filters.incoming)
+async def hola(bot, message):
     send = message.reply
     username = message.from_user.username
     msg = await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())      

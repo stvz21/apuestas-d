@@ -71,6 +71,7 @@ async def url(bot, message):
     send = message.reply
     username = message.from_user.username
     url = requests.get('https://w3schools.com/python/demopage.htm')
+    url = str(url)
     await send(url)     
     
 bot.start()

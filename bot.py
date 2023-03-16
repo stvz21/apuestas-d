@@ -61,10 +61,7 @@ async def edad(bot, message):
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
     await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    functions.cancel
-
-def hola(bot,message):
-    bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())
+    return
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

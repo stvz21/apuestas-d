@@ -5,7 +5,7 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from json import loads,dumps
 from pyrogram.types import ForceReply
-
+from pyrogram.handlers import MessageHandler
 
 api_id = 9910861
 api_hash = "86e927460a8998ba6d84e9c13acfda95"

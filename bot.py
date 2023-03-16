@@ -62,7 +62,7 @@ async def hola(bot, message):
      #   await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())    
     #    if message.text != " ":
             #break
-    time.sleep(5)
+ #   time.sleep(5)
     await send(message.text) 
     
 bot.start()

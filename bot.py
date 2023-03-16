@@ -56,7 +56,7 @@ async def saldo(bot, message):
 
 
 @bot.on_message(filters.command('edad') & filters.private & filters.incoming)
-async def edad(bot, message):
+async def edd(bot, message):
     send = message.reply
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 

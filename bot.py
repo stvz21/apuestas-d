@@ -1,5 +1,6 @@
 import asyncio
 import time
+import request
 from pyrogram import Client , filters
 from pyrogram.types import Message, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 import os
@@ -55,13 +56,22 @@ async def saldo(bot, message):
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
 
-@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
-async def edd(bot, message):
+@bot.on_message(filters.command('url') & filters.private & filters.incoming)
+async def edad(bot, message):
     send = message.reply
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
+    a = message.text
     await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    return
+    if message.text != */edad"
+         b = message.text  
+ 
+@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
+async def edad(bot, message):
+    send = message.reply
+    username = message.from_user.username
+    url = requests.get('https://w3schools.com/python/demopage.htm')
+    await send(url)     
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

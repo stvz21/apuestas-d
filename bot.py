@@ -58,14 +58,12 @@ async def saldo(bot, message):
 async def hola(bot, message):
     send = message.reply
     username = message.from_user.username
-    try:
-        await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
+    await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
      #   await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply())    
     #    if message.text != " ":
             #break
-       #     await send(message.text)
-    except FloodWait as e:
-        await asyncio.sleep(e.x) 
+    time.sleep(5)
+    await send(message.text) 
     
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

@@ -80,10 +80,11 @@ async def enviar_apuesta(bot, message):
     deporte = str(message.text.split("\n")[3])
     saldo = float(message.text.split("\n")[1])
     apuesta = str(message.text)
+    sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
     msg += "**⚽Partido: **"+partido+"\n\n"
     msg += "**Apuesta: **"+deporte+"\n\n"
-    msg += "**Dinero Apostado: **"+saldo+"\n\n"
+    msg += "**Dinero Apostado: **"+sal+"\n\n"
     await send(msg)
 
 

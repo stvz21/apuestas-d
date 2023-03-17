@@ -21,8 +21,8 @@ msg_id = 5
 enviar = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('📤💰 Enviar Apuesta 💰📤', callback_data="enviar_a")],
-        [InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel")],
-        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
+        [InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel")
+        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot"),
      #   [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
         ]]
     )

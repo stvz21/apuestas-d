@@ -17,6 +17,16 @@ bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
 msg_id = 5
 
+##callback
+Inicio = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('💰 Ver Saldo Disponible 💰', callback_data="saldo"),
+        InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],
+        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
+        [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
+        ]]
+    )
+
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
@@ -26,10 +36,10 @@ async def start(bot, message):
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msg.text)
     if username in msg.text:
-        await send("**Hola**@"+username+"** Bienvenido al BoT de Apuestas 🎰**")
+        await send("**Hola **@"+username+"** Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**", reply_markup=inicio)
     else:
         config[username] = {"saldo": 0}
-        await send("**Hola**@"+username+"** Bienvenido al BoT de Apuestas 🎰**")
+        await send("**Hola **@"+username+"** Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**", reply_markup=inicio)
     await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)

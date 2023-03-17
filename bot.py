@@ -73,9 +73,12 @@ async def callback(bot, msg: CallbackQuery):
          #   reply_markup=inicio
         )
         config[username]["apostando"] = 0
+        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+
     elif msg.data == "cancel":
         await msg.message.delete()
         config[username]["apostando"] = 0
+        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
       #  await msg.message.edit(
        #     text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio
@@ -124,7 +127,7 @@ async def enviar_apuesta(bot, message):
         config[username]["apostando"] = saldo
         res = str(restante)
         await send(msg, reply_markup=enviar)
-       
+        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
 async def saldo(bot, message):

@@ -46,7 +46,7 @@ async def callback(bot, msg: CallbackQuery):
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
     if msg.data == "dinero":
         config = loads(msgs.text)
-        saldo = config[username]["saldo"]
+        saldo = str(config[username]["saldo"])
         await msg.message.edit(
              text="**Su Saldo Actual es de:** "+saldo+"**cup**",
              reply_markup=atras

@@ -20,8 +20,8 @@ msg_id = 5
 ##callback 
 enviar = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('📤💰 Enviar Apuesta 💰📤', callback_data="enviar_a"),
-        InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel"),
+        InlineKeyboardButton('📤💰 Enviar Apuesta 💰📤', callback_data="enviar_a")],
+        [InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel")],
         #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
      #   [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
         ]]
@@ -60,21 +60,21 @@ async def callback(bot, msg: CallbackQuery):
              reply_markup=atras
         ) 
     elif msg.data == "inicio":
-        await msg.message.delete()
-     #   await msg.message.edit(
-    #        text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
-    #        reply_markup=inicio
-   #     )
+        await msg.message.edit(
+            text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
+            reply_markup=inicio
+        )
     elif msg.data == "enviar_a":
         await msg.message.edit(
             text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio
         )
     elif msg.data == "cancel":
-        await msg.message.edit(
-            text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
+        await msg.message.delete()
+      #  await msg.message.edit(
+       #     text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio
-        )
+       # )
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
@@ -99,9 +99,9 @@ async def enviar_apuesta(bot, message):
     dinero = float(config[username]["saldo"])
     diner = str(dinero)
     saldo = float(message.text.split("\n")[1])
-    deporte = str(message.text.split("\n")[1])
-    partido = str(message.text.split("\n")[2])
-    apuesta = str(message.text.split("\n")[3])
+    deporte = str(message.text.split("\n")[2])
+    partido = str(message.text.split("\n")[3])
+    apuesta = str(message.text.split("\n")[4])
     sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
     msg += "**🥅Deporte: **"+deporte

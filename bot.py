@@ -73,7 +73,7 @@ async def callback(bot, msg: CallbackQuery):
          #   reply_markup=inicio
         )
         config[username]["apostando"] = 0
-        config[username]["apostando"] = res
+        config[username]["saldo"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
     elif msg.data == "cancel":

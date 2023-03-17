@@ -76,13 +76,13 @@ async def enviar_apuesta(bot, message):
     send = message.reply
     username = message.from_user.username  
    # dinero = float(message.text.split(" ")[1])
-    saldo = float(message.text.split("\n")[1])
+    saldo = str(message.text.split("\n")[1])
     deporte = str(message.text.split("\n")[2])
     apuesta = str(message.text)
     msg = "Tiket⚠️"
     msg += "\nApuesta: "+saldo
     msg += "\nDeporte: "+deporte
-    await msg
+    await send(msg)
 
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)

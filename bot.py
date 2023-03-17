@@ -89,11 +89,11 @@ async def enviar_apuesta(bot, message):
     msg += "**⚽Partido: **"+partido+"\n\n"
     msg += "**🪙Apuesta: **"+deporte+"\n\n"
     msg += "**💰Dinero Apostado: **"+sal+"** cup**\n\n"
-    if dinero <= 0:
+    if diner <= 0:
         await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")
-    elif apuesta < 25:
+    elif saldo < 25:
         await send("**La Apuesta Mínima es de 25 cup\nSaldo: **"+diner+"** cup**")
-    elif saldo < apuesta:
+    elif diner < saldo:
         await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+diner+"** cup**")
     else:
         restante = float(diner - saldo)

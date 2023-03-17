@@ -46,13 +46,14 @@ async def callback(bot, msg: CallbackQuery):
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
     if msg.data == "saldo":
         config = loads(msg.text)
-        saldo = float(config[username]["saldo"])
-        if saldo = 0:
+        saldo = config[username]["saldo"]
+        try:
+            saldo = 0:
             await msg.message.edit(
                 text="**Su Saldo actual es de: 0 cup\nPara Depositar contacte con el administrador\nEl depósito mínimo es de 25 cup, ya sea por Tarjeta 💳 o Saldo Móvil 📲",
                 reply_markup=adm
             )
-        else:
+        except:
             await msg.message.edit(
                 text="**Su Saldo Actual es de:** "+saldo+"**cup**",
                 reply_markup=atras

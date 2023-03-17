@@ -112,7 +112,8 @@ async def enviar_apuesta(bot, message):
         restante = float(dinero - saldo)
         config[username]["saldo"] = restante
         res = str(restante)
-        await send(msg+"\n\nSe Descontó: - "+saldo+" cup\nSaldo Restante: "+res, reply_markup=enviar)
+        
+        await send(msg+"\n\nSe Descontó: - "+sal+" cup\nSaldo Restante: "+res, reply_markup=enviar)
        
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)

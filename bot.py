@@ -52,7 +52,7 @@ async def callback(bot, msg: CallbackQuery):
              reply_markup=atras
         ) 
     elif msg.data == "inicio":
-        await msg.mesaage.edit(
+        await msg.message.edit(
             text="Hola, Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺",
             reply_markup=inicio
         )

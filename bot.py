@@ -69,7 +69,7 @@ async def callback(bot, msg: CallbackQuery):
         res = float(config[username]["saldo"]) - float(config[username]["apostando"])
         resul = str(res)
         await msg.message.edit(
-            text="**Apuesta Enviada Correctamente\n\n**"+resul
+            text="**Apuesta Enviada Correctamente✅✅\nSaldo Restante: **"+resul+"** cup\n\n**+msg.message.text
          #   reply_markup=inicio
         )
         config[username]["apostando"] = 0

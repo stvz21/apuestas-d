@@ -43,6 +43,7 @@ adm = InlineKeyboardMarkup(
 @bot.on_callback_query()
 async def callback(bot, msg: CallbackQuery):
     username = msg.from_user.username
+    msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
     if msg.data == "saldo":
         config = loads(msg.text)
         saldo = float(config[username]["saldo"])

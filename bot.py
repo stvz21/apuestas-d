@@ -20,13 +20,47 @@ msg_id = 5
 ##callback
 inicio = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('💰 Ver Saldo Disponible 💰', callback_data="saldo"),
+        InlineKeyboardButton('💰 Saldo 💰', callback_data="saldo"),
         InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],
         #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
         [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
         ]]
     )
 
+atras = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('🔙 Atas 🔙', callback_data="inicio")
+        ]]
+    )
+
+adm = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('👨🏻‍💻Administrador👨🏻‍💻', url="https://t.me/apuestasDCuba"),
+        InlineKeyboardButton('🔙 Atras 🔙', callback_data="inicio")
+        ]]
+    )
+#####
+@bot.on_callback_query()
+async def callback(bot, msg: CallbackQuery):
+    username = msg.from_user.username
+    if msg.data == "saldo":
+        config = loads(msg.text)
+        saldo = float(config[username]["saldo"])
+        if saldo = 0
+            await msg.message.edit(
+                text="**Su Saldo actual es de: 0 cup\nPara Depositar contacte con el administrador\nEl depósito mínimo es de 25 cup, ya sea por Tarjeta 💳 o Saldo Móvil 📲",
+                reply_markup=adm
+            )
+        else:
+            await msg.message.edit(
+                text="**Su Saldo Actual es de:** "+saldo+"**cup**",
+                reply_markup=atras
+            ) 
+    elif msg.data == "inicio":
+        await msg.mesaage.edit(
+            text=""**Hola **@"+username+"** Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**", reply_markup=inicio",
+            reply_markup=inicio
+        )
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):

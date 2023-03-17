@@ -48,12 +48,12 @@ async def callback(bot, msg: CallbackQuery):
         config = loads(msgs.text)
         saldo = str(config[username]["saldo"])
         await msg.message.edit(
-             text="**Su Saldo Actual es de:** "+saldo+"**cup**",
+             text="**Su Saldo Actual es de:** "+saldo+"** cup**",
              reply_markup=atras
         ) 
     elif msg.data == "inicio":
         await msg.message.edit(
-            text="Hola, Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺",
+            text="**Hola **+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
             reply_markup=inicio
         )
 #Comandos

@@ -75,18 +75,32 @@ async def start(bot, message):
 async def enviar_apuesta(bot, message):
     send = message.reply
     username = message.from_user.username  
-   # dinero = float(message.text.split(" ")[1])
-    partido = str(message.text.split("\n")[2])
-    deporte = str(message.text.split("\n")[3])
+    msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
+    config = loads(msgs.text)
+    dinero = float(config[username]["saldo"])
+    diner = str(dinero)
     saldo = float(message.text.split("\n")[1])
-    apuesta = str(message.text)
+    deporte = str(message.text.split("\n")[1])
+    partido = str(message.text.split("\n")[2])
+    apuesta = str(message.text.split("\n")[3])
     sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
+    msg += "**🥅Deporte: **"+deporte
     msg += "**⚽Partido: **"+partido+"\n\n"
-    msg += "**Apuesta: **"+deporte+"\n\n"
-    msg += "**Dinero Apostado: **"+sal+"\n\n"
-    await send(msg)
-
+    msg += "**🪙Apuesta: **"+deporte+"\n\n"
+    msg += "**💰Dinero Apostado: **"+sal+"** cup**\n\n"
+    if dinero <= 0:
+        await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")
+    elif apuesta < 25:
+        await send("**La Apuesta Mínima es de 25 cup\nSaldo: **"+diner+"** cup**")
+    elif saldo < apuesta:
+        await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+diner+"** cup**")
+    else:
+        restante = float(diner - saldo)
+        config[username]["saldo"] = restante
+        res = str(restante)
+        await send(msg+"\n\nSe Descontó: - "+saldo+" cup\nSaldo Restante: "+res)
+       
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
 async def saldo(bot, message):

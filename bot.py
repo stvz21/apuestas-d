@@ -71,8 +71,8 @@ async def start(bot, message):
         await send("**Hola **@"+username+"** Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**", reply_markup=inicio)
     await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
-@bot.on_message(filters.command('start') & filters.private & filters.incoming)
-async def start(bot, message):
+@bot.on_message(filters.command('enviar_apuesta') & filters.private & filters.incoming)
+async def enviar_apuesta(bot, message):
     send = message.reply
     username = message.from_user.username  
     dinero = float(message.text.split(" ")[1])

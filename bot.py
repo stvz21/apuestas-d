@@ -17,7 +17,15 @@ bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
 msg_id = 5
 
-##callback
+##callback 
+enviar = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('📤💰 Enviar Apuesta 💰📤', callback_data="enviar_a"),
+        InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel"),
+        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
+     #   [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
+        ]]
+    )
 inicio = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('💰 Saldo 💰', callback_data="dinero"),
@@ -55,6 +63,11 @@ async def callback(bot, msg: CallbackQuery):
         await msg.message.edit(
             text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
             reply_markup=inicio
+        )
+    elif msg.data == "enviar_a":
+        await msg.message.edit(
+            text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
+         #   reply_markup=inicio
         )
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
@@ -96,10 +109,10 @@ async def enviar_apuesta(bot, message):
     elif dinero < saldo:
         await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+diner+"** cup**")
     else:
-        restante = float(diner - saldo)
+        restante = float(dinero - saldo)
         config[username]["saldo"] = restante
         res = str(restante)
-        await send(msg+"\n\nSe Descontó: - "+saldo+" cup\nSaldo Restante: "+res)
+        await send(msg+"\n\nSe Descontó: - "+saldo+" cup\nSaldo Restante: "+res, reply_markup=enviar)
        
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)

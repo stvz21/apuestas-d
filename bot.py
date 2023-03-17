@@ -56,15 +56,14 @@ async def saldo(bot, message):
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
 
-@bot.on_message(filters.command('edad') & filters.private & filters.incoming)
-async def edad(bot, message):
+@bot.on_message(filters.command('in') & filters.private & filters.incoming)
+async def in(bot, message):
     send = message.reply
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
-    a = message.text
-    await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-   # if message.text != "/edad"
-        # b = message.text  
+    message.text = edad()
+ #   await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
+    await send(message.text)
  
 @bot.on_message(filters.command('url') & filters.private & filters.incoming)
 async def url(bot, message):
@@ -72,8 +71,13 @@ async def url(bot, message):
     username = message.from_user.username
     url = requests.post('https://eduvirtual.uho.edu.cu/login/index.php')
     urls = str(url)
-    await send(urls)     
+    await send(urls) 
     
+def edad(bot, message):
+    bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
+    return
+
+
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
 bot.add_handler(MessageHandler(edad))

@@ -64,18 +64,18 @@ async def callback(bot, msg: CallbackQuery):
             text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
             reply_markup=inicio
         )
-    elif msg.data == "enviar_a":
+    elif msg.data == "enviar_a":       
         config = loads(msgs.text)
-        dinero = float(config[username]["saldo"])
-        saldo = float(msg.message.text.split("\n")[1]
-        res = dinero - saldo
+        res = float(config[username]["saldo"]) - float(config[username]["apostando"])
         res = str(res)
         await msg.message.edit(
             text="**Apuesta Enviada Correctamente\n\n**"+res
          #   reply_markup=inicio
         )
+        config[username]["apostando"] = 0
     elif msg.data == "cancel":
         await msg.message.delete()
+        config[username]["apostando"] = 0
       #  await msg.message.edit(
        #     text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio
@@ -121,7 +121,7 @@ async def enviar_apuesta(bot, message):
         await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+diner+"** cup**")
     else:
         restante = float(dinero - saldo)
-        config[username]["saldo"] = restante
+        config[username]["apostando"] = saldo
         res = str(restante)
         await send(msg, reply_markup=enviar)
        

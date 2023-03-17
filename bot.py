@@ -75,7 +75,7 @@ async def start(bot, message):
 async def enviar_apuesta(bot, message):
     send = message.reply
     username = message.from_user.username  
-    dinero = float(message.text.split(" ")[1])
+   # dinero = float(message.text.split(" ")[1])
     apuesta = str(message.text)
     await send(apuesta)
 

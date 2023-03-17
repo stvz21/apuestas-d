@@ -104,9 +104,9 @@ async def enviar_apuesta(bot, message):
     apuesta = str(message.text.split("\n")[4])
     sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
-    msg += "**🥅Deporte: **"+deporte
+    msg += "**🥅Deporte: **"+deporte"\n\n"
     msg += "**⚽Partido: **"+partido+"\n\n"
-    msg += "**🪙Apuesta: **"+deporte+"\n\n"
+    msg += "**🪙Apuesta: **"+apuesta+"\n\n"
     msg += "**💰Dinero Apostado: **"+sal+"** cup**\n\n"
     if dinero <= 0:
         await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")

@@ -67,12 +67,13 @@ async def callback(bot, msg: CallbackQuery):
     elif msg.data == "enviar_a":       
         config = loads(msgs.text)
         res = float(config[username]["saldo"]) - float(config[username]["apostando"])
-        res = str(res)
+        resul = str(res)
         await msg.message.edit(
-            text="**Apuesta Enviada Correctamente\n\n**"+res
+            text="**Apuesta Enviada Correctamente\n\n**"+resul
          #   reply_markup=inicio
         )
         config[username]["apostando"] = 0
+        config[username]["apostando"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
     elif msg.data == "cancel":

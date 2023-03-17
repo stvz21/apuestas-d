@@ -20,7 +20,7 @@ msg_id = 5
 ##callback
 inicio = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('💰 Saldo 💰', callback_data="saldo"),
+        InlineKeyboardButton('💰 Saldo 💰', callback_data="dinero"),
         InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],
         #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
         [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
@@ -43,9 +43,9 @@ adm = InlineKeyboardMarkup(
 @bot.on_callback_query()
 async def callback(bot, msg: CallbackQuery):
     username = msg.from_user.username
-    msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
-    if msg.data == "saldo":
-        config = loads(msg.text)
+    msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
+    if msg.data == "dinero":
+        config = loads(msgs.text)
         saldo = config[username]["saldo"]
         await msg.message.edit(
              text="**Su Saldo Actual es de:** "+saldo+"**cup**",

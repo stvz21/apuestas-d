@@ -18,7 +18,7 @@ Channel_Id = -1001807229422
 msg_id = 5
 
 ##callback
-Inicio = InlineKeyboardMarkup(
+inicio = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('💰 Ver Saldo Disponible 💰', callback_data="saldo"),
         InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],

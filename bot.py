@@ -60,11 +60,17 @@ async def callback(bot, msg: CallbackQuery):
              reply_markup=atras
         ) 
     elif msg.data == "inicio":
-        await msg.message.edit(
-            text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
-            reply_markup=inicio
-        )
+        await msg.message.delete()
+     #   await msg.message.edit(
+    #        text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
+    #        reply_markup=inicio
+   #     )
     elif msg.data == "enviar_a":
+        await msg.message.edit(
+            text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
+         #   reply_markup=inicio
+        )
+    elif msg.data == "cancel":
         await msg.message.edit(
             text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio

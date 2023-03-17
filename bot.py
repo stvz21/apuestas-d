@@ -65,8 +65,12 @@ async def callback(bot, msg: CallbackQuery):
             reply_markup=inicio
         )
     elif msg.data == "enviar_a":
+        config = loads(msgs.text)
+        dinero = float(config[username]["saldo"])
+        saldo = float(msg.message.text.split("\n")[1]
+        res = str(dinero - saldo)
         await msg.message.edit(
-            text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
+            text="**Apuesta Enviada Correctamente\n\n**"+res
          #   reply_markup=inicio
         )
     elif msg.data == "cancel":
@@ -118,8 +122,7 @@ async def enviar_apuesta(bot, message):
         restante = float(dinero - saldo)
         config[username]["saldo"] = restante
         res = str(restante)
-        
-        await send(msg+"\n\nSe Descontó: - "+sal+" cup\nSaldo Restante: "+res, reply_markup=enviar)
+        await send(msg, reply_markup=enviar)
        
 
 @bot.on_message(filters.command('saldo') & filters.private & filters.incoming)

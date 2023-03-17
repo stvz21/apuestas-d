@@ -68,7 +68,8 @@ async def callback(bot, msg: CallbackQuery):
         config = loads(msgs.text)
         dinero = float(config[username]["saldo"])
         saldo = float(msg.message.text.split("\n")[1]
-        res = str(dinero - saldo)
+        res = dinero - saldo
+        res = str(res)
         await msg.message.edit(
             text="**Apuesta Enviada Correctamente\n\n**"+res
          #   reply_markup=inicio

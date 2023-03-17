@@ -53,7 +53,7 @@ async def callback(bot, msg: CallbackQuery):
         ) 
     elif msg.data == "inicio":
         await msg.mesaage.edit(
-            text=""Hola, Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺",
+            text="Hola, Bienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺",
             reply_markup=inicio
         )
 #Comandos

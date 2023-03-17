@@ -56,8 +56,8 @@ async def saldo(bot, message):
         await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
 
 
-@bot.on_message(filters.command('in') & filters.private & filters.incoming)
-async def in(bot, message):
+@bot.on_message(filters.command('com') & filters.private & filters.incoming)
+async def com(bot, message):
     send = message.reply
     username = message.from_user.username
    # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 

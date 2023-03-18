@@ -27,11 +27,14 @@ enviar = InlineKeyboardMarkup(
         ]]
     )
 inicio = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('💰 Saldo 💰', callback_data="dinero"),
+        [[ 
         InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],
-        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot")],
-        [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
+        [InlineKeyboardButton('💰 Balance 💰', callback_data="dinero"),
+        #InlineKeyboardButton('📤💰 Retirar 💰📤', callback_data="retirar")],
+        [InlineKeyboardButton('📥💰 Depositar 💰📥', callback_data="depositar")],
+        [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")],
+        [InlineKeyboardButton('🗯️Canal🔖', url="https://luis.com"),
+        InlineKeyboardButton('💭Chat🗨️', url="https://Luis.com")
         ]]
     )
 
@@ -43,8 +46,8 @@ atras = InlineKeyboardMarkup(
 
 adm = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('👨🏻‍💻Administrador👨🏻‍💻', url="https://t.me/apuestasDCuba"),
-        InlineKeyboardButton('🔙 Atras 🔙', callback_data="inicio")
+        InlineKeyboardButton('👨🏻‍💻Administrador👨🏻‍💻', url="https://t.me/apuestasDCuba")],
+        [InlineKeyboardButton('🔙 Atras 🔙', callback_data="inicio")
         ]]
     )
 #####
@@ -84,6 +87,17 @@ async def callback(bot, msg: CallbackQuery):
        #     text="**Apuesta Enviada Correctamente\n\n**"+msg.message.text
          #   reply_markup=inicio
        # )
+
+    elif msg.data == "depositar":
+        await msg.message.edit(
+            text="**Para depositar debes de realizar la tranferencia a los datos, y luego contactar con el Administrador y enviar captura de pantalla de la tranferencia, luego de verificar, recargue su cuenta en el BoT\n\nPreguntas Frecuentes:\n\nMetodos de Depósito:\nPuede ser:\nSaldo:** `51405424`**\nTarjeta:** `7374 3833 8393 3933`\n\n**¿Cuál es el Depósito mínimo?\nEl depósito mínimo es de 25 cup\nSi el depósito es mediante saldo se le descontará un 10% del monto depositado. Ejemplo: Si Deposita 100 cup se le recargará 90 cup válidos para q realice apuestas 🎰**",
+            reply_markup=adm
+
+    elif msg.data == "retirar":
+        await msg.message.edit(
+            text="**Para Retirar 💰 Contacta con el Administrador\n\nPara realizar debe ser un monto mayor a 25 cup y solo se puede realizar 1 retiro cada 2 Días**",
+            reply_markup=adm
+
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):

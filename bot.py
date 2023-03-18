@@ -75,12 +75,14 @@ async def callback(bot, msg: CallbackQuery):
             text="**Apuesta Enviada Correctamente✅✅\nSaldo Restante: **"+resul+"** cup\n\n**"+msg.message.text
          #   reply_markup=inicio
         )
+        await bot.send_message(Channel_Id, msg.message.text)
         config[username]["apostando"] = 0
         config[username]["saldo"] = res
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
     elif msg.data == "cancel":
         await msg.message.delete()
+        config = loads(msgs.text)
         config[username]["apostando"] = 0
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
       #  await msg.message.edit(
@@ -129,9 +131,10 @@ async def enviar_apuesta(bot, message):
     apuesta = str(message.text.split("\n")[4])
     sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
+    msg += "**👤Usuario: **"+username+"\n\n"
     msg += "**🥅Deporte: **"+deporte+"\n\n"
     msg += "**⚽Partido: **"+partido+"\n\n"
-    msg += "**🪙Apuesta: **"+apuesta+"\n\n"
+    msg += "**🏆Apuesta: **"+apuesta+"\n\n"
     msg += "**💰Dinero Apostado: **"+sal+"** cup**\n\n"
     if dinero <= 0:
         await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")

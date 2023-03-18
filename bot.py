@@ -167,8 +167,9 @@ async def add_balance(bot, message):
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
     config = loads(msgs.text)
     user = message.text.split(" ")[1]
-    monto = float(message.text.split(" ")[2]) 
-    if "Stvz20" = username:
+    monto = float(message.text.split(" ")[2])
+    adm = "Stvz20" 
+    if adm = username:
         config[user]["saldo"] = monto
         await send("Se le añadió: "+monto+"**al usuario: **@"+user)
         await bot.send_message(user, "*Su balance a cambiado:➕*"+monto+" **cup** 💰")

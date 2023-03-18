@@ -125,7 +125,7 @@ async def add(bot, message):
     config[user]["saldo"] = monto
     if username in boss:
         await send("El balance del usuario: **@"+user+" A cambiado a: **"+mont)
-        await bot.send_menssage(user, "**Su Balance 💰 a Cambio: **➕"+mont+" **cup**")
+        await bot.send_message(user, "**Su Balance 💰 a Cambio: **➕"+mont+" **cup**")
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
     else:
         await send("👀")

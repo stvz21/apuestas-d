@@ -71,7 +71,7 @@ async def callback(bot, msg: CallbackQuery):
         ) 
     elif msg.data == "inicio":
         await msg.message.edit(
-            text="**Hola **"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
+            text="**Hola **@"+username+"**\nBienvenido al BoT de Apuestas 🎰 Deportivas de Cuba🇨🇺**",
             reply_markup=inicio
         )
     elif msg.data == "enviar_a":       
@@ -141,7 +141,7 @@ async def enviar_apuesta(bot, message):
     apuesta = str(message.text.split("\n")[4])
     sal = str(saldo)
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
-    msg += "**👤Usuario: **"+username+"\n\n"
+    msg += "**👤Usuario: **@"+username+"\n\n"
     msg += "**🥅Deporte: **"+deporte+"\n\n"
     msg += "**⚽Partido: **"+partido+"\n\n"
     msg += "**🏆Apuesta: **"+apuesta+"\n\n"
@@ -168,9 +168,11 @@ async def add_balance(bot, message):
     user = message.text.split(" ")[1]
     monto = float(message.text.split(" ")[2]) 
     if username = "Stvz20"
-        config[User]["saldo"] = monto
-        await send("Se le añadió: "+monto+"al usuario: "+user)
+        config[user]["saldo"] = monto
+        await send("Se le añadió: "+monto+"**al usuario: **@"+user)
         await bot.send_message(user, "*Su balance a cambiado:➕*"+monto+" **cup** 💰")
+        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+
     else:
         await send("👀")
 

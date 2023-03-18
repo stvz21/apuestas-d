@@ -136,9 +136,10 @@ async def users(bot, message):
     username = message.from_user.username  
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msgs.text)
-    if config:
-        for item in config.items:
-            msg = "Usuarios\n@"+item+"\n"
+   # if config:
+    for user in config:
+        msg = "Usuarios\n"
+        msg += f"@{user}\n"
     await send(msg)
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

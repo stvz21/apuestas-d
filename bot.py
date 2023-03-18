@@ -110,7 +110,7 @@ async def callback(bot, msg: CallbackQuery):
         )
 
     elif msg.data == "apost":
-        await bot.send_photo(username,"ej.jpg",caption="**Para apostar debe hacerlo de la siguiente manera:\nDebe Unirse al Canal donde se enviaran los partidos disponibles para realizar apuestas, luego para realizar la apuesta llena sus datos de la siguiente forma:\n\n/enviar_apuesta\nCantidad que va a apostar\nPartido\nApuesta\n\nEjemplo:\n\n/enviar_apuesta\n50\nReal Madrid vs Barcelona\nGana Real Madrid**", reply_markup=canal)
+        await bot.send_photo(username,"ej.jpg",caption="**Para apostar debe hacerlo de la siguiente manera:\nDebe Unirse al Canal donde se enviaran los partidos disponibles para realizar apuestas, luego para realizar la apuesta llena sus datos de la siguiente forma:\n\n/enviar_apuesta\nCantidad que va a apostar\nDeporte\nPartido\nApuesta\n\nEjemplo:\n\n/enviar_apuesta\n50\nFútbol\nReal Madrid vs Barcelona\nGana Real Madrid**", reply_markup=canal)
 
 #Comandos
 @bot.on_message(filters.command('add') & filters.private & filters.incoming)

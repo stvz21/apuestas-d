@@ -121,12 +121,15 @@ async def add(bot, message):
     config = loads(msg.text)
     user = message.text.split(" ")[1]
     monto = float(message.text.split(" ")[2])
+    mont = str(monto)
     config[user]["saldo"] = monto
     if username in boss:
-        await send(user)
+        await send("El balance del usuario: **@"+user+" A cambiado a: **"+mont)
+        await bot.send_menssage(user, "**Su Balance 💰 a Cambio: **➕"+mont+" **cup**")
+        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
     else:
         await send("👀")
-    await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+    
 
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

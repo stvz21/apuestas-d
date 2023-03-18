@@ -113,11 +113,22 @@ async def callback(bot, msg: CallbackQuery):
         await bot.send_photo(username,"ej.jpg",caption="**Para apostar debe hacerlo de la siguiente manera:\nDebe Unirse al Canal donde se enviaran los partidos disponibles para realizar apuestas, luego para realizar la apuesta llena sus datos de la siguiente forma:\n\n/enviar_apuesta\nCantidad que va a apostar\nPartido\nApuesta\n\nEjemplo:\n\n/enviar_apuesta\n50\nReal Madrid vs Barcelona\nGana Real Madrid**", reply_markup=canal)
 
 #Comandos
+@bot.on_message(filters.command('add') & filters.private & filters.incoming)
+async def add(bot, message):
+    send = message.reply
+    username = message.from_user.username  
+    msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
+    config = loads(msg.text)
+    monto = float(message.text.split(" ")[2])
+    user = message.text.split(" ")[1]
+    config[User][""] = monto
+    if username = "Stvz20"
+        await send(user)
+
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
     send = message.reply
     username = message.from_user.username  
-  #  send_db = bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msg.text)
     if username in msg.text:
@@ -160,25 +171,6 @@ async def enviar_apuesta(bot, message):
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
     return
 
-@bot.on_message(filters.command('add_balance') & filters.private & filters.incoming)
-async def add_balance(bot, message):
-    send = message.reply
-    username = message.from_user.username  
-    msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
-    config = loads(msgs.text)
-    user = message.text.split(" ")[1]
-    monto = float(message.text.split(" ")[2])
-    adm = "Stvz20" 
-    if adm = username:
-        config[user]["saldo"] = monto
-        await send("Se le añadió: "+monto+"**al usuario: **@"+user)
-        await bot.send_message(user, "*Su balance a cambiado:➕*"+monto+" **cup** 💰")
-        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
-
-    else:
-        await send("👀")
-
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')
-bot.add_handler(MessageHandler(edad))
 bot.loop.run_forever()

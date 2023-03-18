@@ -137,8 +137,8 @@ async def users(bot, message):
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msgs.text)
    # if config:
+    msg = "Usuarios\n"
     for user in config:
-        msg = "Usuarios\n"
         msg += f"@{user}\n"
     await send(msg)
 

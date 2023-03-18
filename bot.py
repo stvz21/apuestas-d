@@ -158,6 +158,7 @@ async def enviar_apuesta(bot, message):
     partido = str(message.text.split("\n")[3])
     apuesta = str(message.text.split("\n")[4])
     sal = str(saldo)
+    depor = ["Fútbol", "Tenis",]
     msg = "**💪🏻👀Datos De su Apuestas 💰💰\n\n**"
     msg += "**👤Usuario: **@"+username+"\n\n"
     msg += "**🥅Deporte: **"+deporte+"\n\n"
@@ -170,6 +171,8 @@ async def enviar_apuesta(bot, message):
         await send("**La Apuesta Mínima es de 25 cup\nSaldo: **"+diner+"** cup**")
     elif dinero < saldo:
         await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+diner+"** cup**")
+    elif not deporte in depor:
+        await send("**Deporte Incorrecto\n\nDeportes Disponibles:\n**`Fútbol\nTenis\nBeisbol`")
     else:
         restante = float(dinero - saldo)
         config[username]["apostando"] = saldo

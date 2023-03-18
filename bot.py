@@ -130,8 +130,8 @@ async def add(bot, message):
     else:
         await send("👀")
     
-@bot.on_message(filters.command('add') & filters.private & filters.incoming)
-async def add(bot, message):
+@bot.on_message(filters.command('users') & filters.private & filters.incoming)
+async def users(bot, message):
     send = message.reply
     username = message.from_user.username  
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id) 
@@ -140,6 +140,7 @@ async def add(bot, message):
         for users in config.items:
             msg = "Usuarios\n@"+users+"\n"
     await send(msg)
+
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):
     send = message.reply

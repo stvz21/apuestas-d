@@ -159,51 +159,20 @@ async def enviar_apuesta(bot, message):
         await send(msg, reply_markup=enviar)
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
 
-@bot.on_message(filters.command('saldo') & filters.private & filters.incoming)
-async def saldo(bot, message):
+@bot.on_message(filters.command('add_balance') & filters.private & filters.incoming)
+async def add_balance(bot, message):
     send = message.reply
-    username = message.from_user.username
-    msg = await bot.get_messages(Channel_Id,message_ids=msg_id)
-    config = loads(msg.text)
-    saldo = float(config[username]["saldo"])
-    sal = str(saldo)
-    apuesta = float(message.text.split(" ")[1])
-    if saldo <= 0:
-        await send("**No tiene saldo en su cuenta para realizar apuetas\nPor Favor Deposite Antes**")
-    elif apuesta < 25:
-        await send("**La Apuesta Mínima es de 25 cup\nSaldo: **"+sal+"cup")
-    elif saldo < apuesta:
-        await send ("**Está intentando aportar más de su saldo Disponible\nSaldo: **"+sal+" cup")
+    username = message.from_user.username  
+    msgs = await bot.get_messages(Channel_Id,message_ids=msg_id)
+    config = loads(msgs.text)
+    user = message.text.split(" ")[1]
+    monto = float(message.text.split(" ")[2]) 
+    if username = "Stvz20"
+        config[User]["saldo"] = monto
+        await send("Se le añadió: "+monto+"al usuario: "+user)
+        await bot.send_message(user, "*Su balance a cambiado:➕*"+monto+" **cup** 💰")
     else:
-        apuest = str(apuesta)
-        res = float(saldo - apuesta)
-        ssl = str(res)
-        config[username]["saldo"] = res
-        await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
-        await send("Se Descontó: -"+apuest+"\nSaldo Restante: "+ssl)
-
-
-@bot.on_message(filters.command('com') & filters.private & filters.incoming)
-async def com(bot, message):
-    send = message.reply
-    username = message.from_user.username
-   # await message.reply("Cuál es Tu edad", reply_markup=ForceReply()) 
-    message.text = edad()
- #   await bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    await send(message.text)
- 
-@bot.on_message(filters.command('url') & filters.private & filters.incoming)
-async def url(bot, message):
-    send = message.reply
-    username = message.from_user.username
-    url = requests.post('https://eduvirtual.uho.edu.cu/login/index.php')
-    urls = str(url)
-    await send(urls) 
-    
-def edad(bot, message):
-    bot.send_message(username, text = "Introduce Tu edad", reply_markup=ForceReply()) 
-    return
-
+        await send("👀")
 
 bot.start()
 bot.send_message(5416296262,'**BoT Iniciado**')

@@ -158,6 +158,7 @@ async def enviar_apuesta(bot, message):
         res = str(restante)
         await send(msg, reply_markup=enviar)
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
+    return
 
 @bot.on_message(filters.command('add_balance') & filters.private & filters.incoming)
 async def add_balance(bot, message):

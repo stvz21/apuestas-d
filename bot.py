@@ -12,7 +12,7 @@ from pyrogram.handlers import MessageHandler
 
 api_id = 9910861
 api_hash = "86e927460a8998ba6d84e9c13acfda95"
-bot_token = "5999344767:AAFh7elZ_HiuZ8GLJ3K63LQnV3Nu8RSrndY"
+bot_token = "6110971540:AAHptwO0ALm12Y31NK3SRpdHWwXgKSYSOAE"
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
 msg_id = 5
@@ -125,7 +125,7 @@ async def add(bot, message):
     config[user]["saldo"] = monto
     if username in boss:
         await send("El balance del usuario: **@"+user+" A cambiado a: **"+mont)
-        await bot.send_message(user, "**Su Balance 💰 a Cambio: **➕"+mont+" **cup**")
+        await bot.send_message(user, "**Su Balance 💰 Cambió: **➕"+mont+" **cup**")
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
   
 @bot.on_message(filters.command('users') & filters.private & filters.incoming)

@@ -33,14 +33,21 @@ inicio = InlineKeyboardMarkup(
         InlineKeyboardButton('📤💰 Retirar 💰📤', callback_data="retirar")],
         [InlineKeyboardButton('📥💰 Depositar 💰📥', callback_data="depositar")],
        # [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")],
-        [InlineKeyboardButton('🗯️Canal🔖', url="https://luis.com"),
-        InlineKeyboardButton('💭Chat🗨️', url="https://Luis.com")
+        [InlineKeyboardButton('🗯️Canal🔖', url="https://t.me/Apuestas_Deportivas_Cuba"),
+        InlineKeyboardButton('💭Chat🗨️', url="https://t.me/Chat_Apuestas_Deportivas_Cuba")
         ]]
     )
 
 atras = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('🔙 Atas 🔙', callback_data="inicio")
+        ]]
+    )
+
+canal = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('Apuestas 🏆 Cuotas', url="https://t.me/ApuestasCoutas")],
+        [InlineKeyboardButton('Cerrar Mensaje', callback_data="cancel")
         ]]
     )
 
@@ -103,7 +110,7 @@ async def callback(bot, msg: CallbackQuery):
         )
 
     elif msg.data == "apost":
-        await bot.send_photo(username,"ej.jpg",caption="**Para apostar debe hacerlo de la siguiente manera:\nDebe Unirse al Canal donde se enviaran los partidos disponibles para realizar apuestas, luego para realizar la apuesta llena sus datos de la siguiente forma:\n\n/enviar_apuesta\nCantidad que va a apostar\nPartido\nApuesta\n\nEjemplo:\n\n/enviar_apuesta\n50\nReal Madrid vs Barcelona\nGana Real Madrid**")
+        await bot.send_photo(username,"ej.jpg",caption="**Para apostar debe hacerlo de la siguiente manera:\nDebe Unirse al Canal donde se enviaran los partidos disponibles para realizar apuestas, luego para realizar la apuesta llena sus datos de la siguiente forma:\n\n/enviar_apuesta\nCantidad que va a apostar\nPartido\nApuesta\n\nEjemplo:\n\n/enviar_apuesta\n50\nReal Madrid vs Barcelona\nGana Real Madrid**", reply_markup=canal)
 
 #Comandos
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

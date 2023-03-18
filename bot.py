@@ -16,7 +16,7 @@ bot_token = "5871277082:AAFsEc0clhaeJ0wokJVfGF0_P3P0385Sb0M"
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
 msg_id = 5
-
+boss = {"Stvz20"}
 ##callback 
 enviar = InlineKeyboardMarkup(
         [[
@@ -121,8 +121,8 @@ async def add(bot, message):
     config = loads(msg.text)
     monto = float(message.text.split(" ")[2])
     user = message.text.split(" ")[1]
-    config[User][""] = monto
-    if username = "Stvz20"
+    config[user]["saldo"] = monto
+    if username in boss:
         await send(user)
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

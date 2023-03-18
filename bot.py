@@ -22,7 +22,7 @@ enviar = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('📤💰 Enviar Apuesta 💰📤', callback_data="enviar_a")],
         [InlineKeyboardButton('⛔ Cancelar ⛔', callback_data="cancel")
-        #InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot"),
+    #    InlineKeyboardButton('📈 Info Del BoT 📈', callback_data="infobot"),
      #   [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")
         ]]
     )
@@ -30,7 +30,7 @@ inicio = InlineKeyboardMarkup(
         [[ 
         InlineKeyboardButton('💸 Apostar 💸', callback_data="apost")],
         [InlineKeyboardButton('💰 Balance 💰', callback_data="dinero"),
-        #InlineKeyboardButton('📤💰 Retirar 💰📤', callback_data="retirar")],
+        InlineKeyboardButton('📤💰 Retirar 💰📤', callback_data="retirar")],
         [InlineKeyboardButton('📥💰 Depositar 💰📥', callback_data="depositar")],
         [InlineKeyboardButton('⚠️🆘⛑️ Ayuda ⛑️ 🆘 ⚠️', callback_data="ayuda")],
         [InlineKeyboardButton('🗯️Canal🔖', url="https://luis.com"),

@@ -137,9 +137,10 @@ async def users(bot, message):
     msgs = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msgs.text)
    # if config:
-    msg = "Usuarios\n"
+    msg = "Usuarios|Saldo\n"
     for user in config:
-        msg += f"@{user}\n"
+        saldo = config[user]["saldo"]
+        msg += f"@{user}: {saldo} cup\n"       
     await send(msg)
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

@@ -119,10 +119,10 @@ async def add(bot, message):
     username = message.from_user.username  
     msg = await bot.get_messages(Channel_Id,message_ids=msg_id) 
     config = loads(msg.text)
-    monto = float(message.text.split(" ")[2])
     user = message.text.split(" ")[1]
+    monto = float(message.text.split(" ")[2])
     config[user]["saldo"] = monto
-    if username in boss:
+    if username = "Stvz20":
         await send(user)
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)

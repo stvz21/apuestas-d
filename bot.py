@@ -16,7 +16,7 @@ bot_token = "5999344767:AAFh7elZ_HiuZ8GLJ3K63LQnV3Nu8RSrndY"
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 Channel_Id = -1001807229422
 msg_id = 5
-boss = ["Stvz20"]
+boss = ["Stvz20", "apuestasDCuba"]
 ##callback 
 enviar = InlineKeyboardMarkup(
         [[
@@ -127,9 +127,7 @@ async def add(bot, message):
         await send("El balance del usuario: **@"+user+" A cambiado a: **"+mont)
         await bot.send_message(user, "**Su Balance 💰 a Cambio: **➕"+mont+" **cup**")
         await bot.edit_message_text(Channel_Id,message_id=msg_id,text=dumps(config,indent=4))
-    else:
-        await send("👀")
-    
+  
 @bot.on_message(filters.command('users') & filters.private & filters.incoming)
 async def users(bot, message):
     send = message.reply
@@ -140,8 +138,9 @@ async def users(bot, message):
     msg = "Usuarios|Saldo\n"
     for user in config:
         saldo = config[user]["saldo"]
-        msg += f"@{user}: {saldo} cup\n"       
-    await send(msg)
+        msg += f"@{user}: {saldo} cup\n"     
+    if username in boss:  
+        await send(msg)
 
 @bot.on_message(filters.command('start') & filters.private & filters.incoming)
 async def start(bot, message):

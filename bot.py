@@ -6,7 +6,7 @@ from pyrogram.types import Message, ReplyKeyboardMarkup, InlineKeyboardButton, I
 import os
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from json import loads,dumps
+#from json import loads,dumps
 from pyrogram.types import ForceReply
 from pyrogram.handlers import MessageHandler
 

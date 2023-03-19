@@ -1,6 +1,6 @@
-flask
-gunicorn
+#flask
+#gunicorn
 pyrogram
 TgCrypto
-ujson==5.5.0
-requests
+#ujson==5.5.0
+#requests

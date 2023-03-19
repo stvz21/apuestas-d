@@ -131,7 +131,7 @@ async def add(bot, message):
 @bot.on_message(filters.command('env') & filters.private & filters.incoming)
 async def add(bot, message):
     username = message.from_user.username
-    await bot.forward_messages(username, Channel_Id, [msg_id, 3])
+    await bot.forward_messages(username, Channel_Id, [msg_id, 21])
 
 
 @bot.on_message(filters.command('users') & filters.private & filters.incoming)
